@@ -1,0 +1,9 @@
+        
+def getGuessedWord (secretWord, lettersGuessed):
+    placeholderWord = secretWord
+    for char in secretWord:
+        if char in lettersGuessed:
+            continue
+        else:
+            placeholderWord = placeholderWord.replace(char, ' _ ')
+    return placeholderWord
