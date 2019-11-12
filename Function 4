@@ -1,1 +1,25 @@
-
+def Hangaroo(secretWord):
+    lettersGuessed = set()
+    mistakesMade = 0
+    while isWordGuessed(secretWord, lettersGuessed) is False:
+        guess = input("Input Letter: ")
+        print('')
+        while guess in lettersGuessed:
+            print("Already guessed! Try again!")
+            guess = input("What's your letter? ")
+        if guess not in secretWord:
+            mistakesMade += 1;
+        else:
+            lettersGuessed.add(guess)
+        print('Mistakes made: ', mistakesMade)
+        print('')
+        print('Secret word: ', getGuessedWord(secretWord, lettersGuessed))
+        print('')
+        print('Letters Left: ', getAvailableLetters(lettersGuessed))
+        print('')
+        if mistakesMade == 3:
+            print('')
+            print('You lost!')
+            break
+    if mistakesMade < 3:
+        print("You won!")
